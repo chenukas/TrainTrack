@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TrainTrack</string>
+    <string name="pageName">Trip Reminder</string>
+    <string name="addReminder">+New Reminder</string>
 </resources>
