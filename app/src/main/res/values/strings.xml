@@ -11,4 +11,5 @@
     <string name="time">Time</string>
     <string name="remind">Set Reminder Before</string>
     <string name="buttonSave">Save</string>
+    <string name="logo_name">TrainTrackLogo</string>
 </resources>
