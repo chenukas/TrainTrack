@@ -9,10 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddReminder"></activity>
-        <activity android:name=".ViewReminder"></activity>
-        <activity android:name=".Login"></activity>
-        <activity android:name=".form"></activity>
+        <activity android:name=".Home" />
+        <activity android:name=".AddReminder" />
+        <activity android:name=".ViewReminder" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Register">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

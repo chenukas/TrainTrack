@@ -12,4 +12,9 @@
     <string name="remind">Set Reminder Before</string>
     <string name="buttonSave">Save</string>
     <string name="logo_name">TrainTrackLogo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign-In</string>
+    <string name="sign_up">Sign-Up</string>
+    <string name="forgot_password">Forgot Password?</string>
 </resources>
