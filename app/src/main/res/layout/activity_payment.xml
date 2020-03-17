@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.057" />
 
     <TextView
         android:id="@+id/textView8"
@@ -116,6 +116,7 @@
         android:id="@+id/button5"
         android:layout_width="55dp"
         android:layout_height="58dp"
+        android:background="@color/white"
         android:text="@string/plus"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

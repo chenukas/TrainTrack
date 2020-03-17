@@ -44,4 +44,8 @@
     <string name="pay_now">PAY NOW</string>
     <string name="plus">+</string>
 
+    <string name="payment_history">Payment History</string>
+    <string name="remove">REMOVE</string>
+    <string name="remove_all">REMOVE ALL</string>
+
 </resources>
