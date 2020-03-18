@@ -58,5 +58,6 @@
     <string name="user_profile">User Profile</string>
     <string name="update">Update</string>
     <string name="delete_profile">Delete Profile</string>
+    <string name="schedule_train">Train Schedule</string>
 
 </resources>
