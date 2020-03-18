@@ -8,70 +8,41 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="253dp"
-        android:layout_height="56dp"
-        android:text="@string/payment_history"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="455dp"
+        android:text="@string/recent_payment"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/colorAccent"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toTopOf="@+id/clr_all"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.316"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="132dp"
-        android:layout_height="49dp"
-        android:text="@string/description"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+    <ListView
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="@color/listColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
-
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="125dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:hint="@string/total_amount"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="68dp"
-        android:layout_height="30dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="@string/remove"
+        android:id="@+id/clr_all"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="38dp"
+        android:text="@string/clear_all"
+        android:textColor="@color/white"
+        android:background="@color/colorButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="112dp"
-        android:layout_height="46dp"
-        android:background="@android:color/holo_red_dark"
-        android:focusableInTouchMode="false"
-        android:text="@string/remove_all"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
