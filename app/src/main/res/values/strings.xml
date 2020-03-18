@@ -13,30 +13,37 @@
     <string name="logo_name">TrainTrackLogo</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="sign_in">Sign-In</string>
-    <string name="sign_up">Sign-Up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="save">Save</string>
-
     <string name="description">Description</string>
+    <string name="nic">NIC</string>
+    <string name="dob">DOB</string>
+    <string name="email">E-mail</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="agreement">By clicking Sign up, you agree to our Terms of service.</string>
+
     <string name="total">Total</string>
-    <string name="add_payment_method">Add Payment Method</string>
+    <string name="add_payment_method">Select Credit/Debit Card</string>
     <string name="payment_page">Payment</string>
-    <string name="add_new_card">Add new card</string>
-    <string name="amount_new">amount</string>
-    <string name="total_amount">total amount</string>
+    <string name="add_new_card">New card</string>
+    <string name="amount_new">Amount</string>
+    <string name="total_amount">Rs.250.00</string>
+    <string name="sample_card_no">4545 2675 8793 9091</string>
 
 
-    <string name="add_credit_debit_card">Add Credit/Debit Card</string>
+    <string name="add_credit_debit_card">Credit/Debit Card Details</string>
     <string name="card_number">Card Number</string>
+    <string name="name_on_card">Name on card</string>
+    <string name="expiry_date">MM/YY</string>
     <string name="first_name">First Name</string>
-    <string name="mm">MM</string>
-    <string name="yy">YY</string>
     <string name="last_name">Last Name</string>
-    <string name="security_code">Security Code</string>
+    <string name="security_code">Security Code(CVV)</string>
     <string name="slash">/</string>
-    <string name="save_the_card">Save the card</string>
-    <string name="done">DONE</string>
+    <string name="save_the_card">Keep card for future transactions</string>
+    <string name="done">Done</string>
 
 
     <string name="booking_summary">Booking Summary</string>
@@ -44,8 +51,12 @@
     <string name="pay_now">PAY NOW</string>
     <string name="plus">+</string>
 
-    <string name="payment_history">Payment History</string>
-    <string name="remove">REMOVE</string>
-    <string name="remove_all">REMOVE ALL</string>
+    <string name="recent_payment">Recent Payments</string>
+    <string name="clear">Clear</string>
+    <string name="clear_all">Clear All</string>
+
+    <string name="user_profile">User Profile</string>
+    <string name="update">Update</string>
+    <string name="delete_profile">Delete Profile</string>
 
 </resources>
