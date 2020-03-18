@@ -59,5 +59,6 @@
     <string name="update">Update</string>
     <string name="delete_profile">Delete Profile</string>
     <string name="schedule_train">Train Schedule</string>
+    <string name="search">Search</string>
 
 </resources>
