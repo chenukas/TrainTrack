@@ -111,6 +111,7 @@
         android:id="@+id/textView27"
         android:layout_width="150dp"
         android:layout_height="40dp"
+        android:hint="@string/trainclass"
         android:text="@string/cls"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
