@@ -10,13 +10,15 @@
         android:id="@+id/textView6"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="92dp"
         android:text="@string/sign_up"
         android:textColor="@color/colorAccent"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/editText9"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.071" />
 
     <EditText
         android:id="@+id/firstname"
@@ -34,16 +36,18 @@
 
     <EditText
         android:id="@+id/lastname"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
+        android:layout_width="149dp"
+        android:layout_height="61dp"
         android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="@string/last_name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/dob"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/nic"
@@ -55,9 +59,10 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editText9"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <EditText
         android:id="@+id/email"
@@ -136,19 +141,22 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.973" />
 
     <EditText
         android:id="@+id/dob"
-        android:layout_width="134dp"
-        android:layout_height="52dp"
+        android:layout_width="149dp"
+        android:layout_height="60dp"
         android:layout_marginTop="208dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="DOB"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/address"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
