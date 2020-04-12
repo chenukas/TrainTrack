@@ -1,15 +1,22 @@
 package com.mad.traintrack;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,6 +25,8 @@ public class Register extends AppCompatActivity {
     Button btnsignup;
     DatabaseReference dbRef;
     User user;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,11 @@ public class Register extends AppCompatActivity {
         btnsignup = findViewById(R.id.signup);
 
         user = new User();
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,23 +80,38 @@ public class Register extends AppCompatActivity {
                         user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
                         user.setPassword(txtpassword.getText().toString().trim());
 
-                        dbRef.push().setValue(user);
-                        //dbRef.child("std1").setValue(std);
+                        //dbRef.push().setValue(user);
+                        dbRef.child("user1").setValue(user);
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
-                        openlogin();
                         clearControls();
                     }
 
-                }
-                catch (NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
                 }
+                mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), Login.class));
+                                }
+                                else
+                                    Toast.makeText(getApplicationContext(), "Error. Please Try Again", Toast.LENGTH_SHORT).show();
+
+
+                            }
+                        });
             }
+
         });
+
 
     }
 
     private void clearControls() {
+
         txtfirstname.setText("");
         txtlastname.setText("");
         txtnic.setText("");
@@ -92,16 +121,7 @@ public class Register extends AppCompatActivity {
         txtphone.setText("");
         txtpassword.setText("");
 
+
     }
 
-    public void openlogin() {
-        Button btn = (Button) findViewById( R.id.signup);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Register.this, Login.class);
-                startActivity(intent);
-            }
-        });
-    }
 }
