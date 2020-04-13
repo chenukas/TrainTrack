@@ -60,6 +60,9 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), Home.class));
                         }else {
                             Toast.makeText(getApplicationContext(), "Invalid Username and Password", Toast.LENGTH_SHORT).show();
+                            txtpass.setError("The Email or password is incorrect");
+                            txtmail.setError("The Email or password is incorrect");
+                            return;
                         }
 
                     }
