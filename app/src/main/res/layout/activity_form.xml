@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.071" />
 
     <EditText
-        android:id="@+id/firstname"
+        android:id="@+id/editText9"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:ems="10"
@@ -34,20 +34,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.223" />
 
-    <EditText
-        android:id="@+id/lastname"
-        android:layout_width="149dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="132dp"
-        android:ems="10"
-        android:hint="@string/last_name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/dob"
+    <!--        app:layout_constraintBottom_toTopOf="@+id/dob"--><![CDATA[
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+
+
+
+
+    ]]>
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="149dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="132dp"
+        android:ems="10"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/editText9"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/nic"
@@ -147,7 +157,7 @@
         app:layout_constraintVertical_bias="0.973" />
 
     <EditText
-        android:id="@+id/dob"
+        android:id="@+id/editText12"
         android:layout_width="149dp"
         android:layout_height="60dp"
         android:layout_marginTop="208dp"
@@ -157,6 +167,8 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/address"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/nic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

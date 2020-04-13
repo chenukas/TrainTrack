@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class UserDetails extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
     ToggleButton btnview;
+    Button btnupdate;
     DatabaseReference dbRef;
     User user;
     @Override
@@ -37,6 +38,7 @@ public class UserDetails extends AppCompatActivity {
         txtpassword = findViewById(R.id.editText18);
 
         btnview = findViewById(R.id.toggleButton);
+        btnupdate = findViewById(R.id.button9);
 
         user = new User();
 
@@ -74,8 +76,7 @@ public class UserDetails extends AppCompatActivity {
                     txtpassword.setVisibility(View.VISIBLE);
                     txtphone.setVisibility(View.VISIBLE);
                     txtemail.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     txtfirstname.setVisibility(View.INVISIBLE);
                     txtlastname.setVisibility(View.INVISIBLE);
                     txtdob.setVisibility(View.INVISIBLE);
@@ -88,5 +89,59 @@ public class UserDetails extends AppCompatActivity {
             }
         });
 
+        btnupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference updRef = FirebaseDatabase.getInstance().getReference().child("User");
+                updRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild("user1")) {
+                            try {
+                                user.setFirstname(txtfirstname.getText().toString().trim());
+                                user.setLastname(txtlastname.getText().toString().trim());
+                                user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
+                                user.setDob(txtdob.getText().toString().trim());
+                                user.setAddress(txtaddress.getText().toString().trim());
+                                user.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
+                                user.setEmail(txtemail.getText().toString().trim());
+                                user.setPassword(txtpassword.getText().toString().trim());
+
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
+                                dbRef.setValue(user);
+                                clearControls();
+
+                                Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+
+                            } catch (NumberFormatException e) {
+                                Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+
+                            }
+                        } else
+                            Toast.makeText(getApplicationContext(), "No Source to Update", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
     }
-}
+
+
+        private void clearControls() {
+            txtfirstname.setText("");
+            txtlastname.setText("");
+            txtnic.setText("");
+            txtdob.setText("");
+            txtaddress.setText("");
+            txtemail.setText("");
+            txtphone.setText("");
+            txtpassword.setText("");
+        }
+
+    }
+

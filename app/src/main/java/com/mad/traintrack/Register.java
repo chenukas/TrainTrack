@@ -33,10 +33,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        txtfirstname = findViewById(R.id.firstname);
-        txtlastname = findViewById(R.id.lastname);
+        txtfirstname = findViewById(R.id.editText9);
+        txtlastname = findViewById(R.id.editText11);
         txtnic = findViewById(R.id.nic);
-        txtdob = findViewById(R.id.dob);
+        txtdob = findViewById(R.id.editText12);
         txtaddress = findViewById(R.id.address);
         txtemail = findViewById(R.id.email);
         txtphone = findViewById(R.id.phone);
