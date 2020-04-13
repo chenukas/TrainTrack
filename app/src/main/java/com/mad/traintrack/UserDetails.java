@@ -3,6 +3,7 @@ package com.mad.traintrack;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class UserDetails extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
     ToggleButton btnview;
     Button btnupdate;
+    Button btnDelete;
     DatabaseReference dbRef;
     User user;
     @Override
@@ -39,6 +41,7 @@ public class UserDetails extends AppCompatActivity {
 
         btnview = findViewById(R.id.toggleButton);
         btnupdate = findViewById(R.id.button9);
+        btnDelete = findViewById(R.id.button7);
 
         user = new User();
 
@@ -120,6 +123,31 @@ public class UserDetails extends AppCompatActivity {
                         } else
                             Toast.makeText(getApplicationContext(), "No Source to Update", Toast.LENGTH_SHORT).show();
 
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("User");
+                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild("user1")) {
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
+                            dbRef.removeValue();
+                            Toast.makeText(getApplicationContext(), "You have successfully removed the account", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(), "Error deleting the Account", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
