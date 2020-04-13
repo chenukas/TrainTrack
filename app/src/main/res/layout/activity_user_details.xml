@@ -124,27 +124,52 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="44dp"
         android:background="@color/colorButton"
         android:text="@string/update"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.852" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="46dp"
+        android:background="@color/colorButton"
         android:text="@string/delete_profile"
         android:textColor="@color/white"
-        android:background="@color/colorButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.853" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="28dp"
+        android:text="ToggleButton"
+        android:background="@color/colorButton"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="193dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="28dp"
+        android:text="Please Touch the Toggle button to View User details."
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

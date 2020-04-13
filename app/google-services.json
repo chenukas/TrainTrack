@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577821959231",
+    "firebase_url": "https://traintrack-aa942.firebaseio.com",
+    "project_id": "traintrack-aa942",
+    "storage_bucket": "traintrack-aa942.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577821959231:android:0f2302832519a9e2bc048a",
+        "android_client_info": {
+          "package_name": "com.mad.traintrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577821959231-hcr5m9q1lloo9v9dr1je3dhfmn6h0u1k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad.traintrack",
+            "certificate_hash": "69a1011dba0567270043362a509c70b8bd98354f"
+          }
+        },
+        {
+          "client_id": "577821959231-l76jlc1921fqdt7jmnvuumf0hj8j3j4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyL-5v4E5KcAnYhrXy76PhQkkAs3W22MM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577821959231-l76jlc1921fqdt7jmnvuumf0hj8j3j4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
