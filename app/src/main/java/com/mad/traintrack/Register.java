@@ -67,9 +67,13 @@ public class Register extends AppCompatActivity {
                     else if (TextUtils.isEmpty(txtaddress.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter the Address", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtemail.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the Email", Toast.LENGTH_SHORT).show();
+                        txtemail.setError("Email cannot be Empty");
                     else if (TextUtils.isEmpty(txtpassword.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter a Password", Toast.LENGTH_SHORT).show();
+                    else if (txtpassword.length() < 6) {
+                        txtpassword.setError("Password should be more than six characters");
+                        return;
+                    }
                     else {
                         user.setFirstname(txtfirstname.getText().toString().trim());
                         user.setLastname(txtlastname.getText().toString().trim());
