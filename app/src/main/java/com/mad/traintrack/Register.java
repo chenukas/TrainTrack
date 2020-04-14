@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
 
                         //dbRef.push().setValue(user);
                         dbRef.child("user1").setValue(user);
-                        Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                         clearControls();
                     }
 
