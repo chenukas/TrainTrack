@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "577821959231-o1tmsdlp7p7g32eo3oh13ehbda7v2lph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad.traintrack",
+            "certificate_hash": "da928b03b4613cec66265387e0baa53092ff5938"
+          }
+        },
+        {
           "client_id": "577821959231-lp5pnotqmvcujfcfqiufb4m51jgqe827.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
