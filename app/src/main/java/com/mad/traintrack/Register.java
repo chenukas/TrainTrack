@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class Register extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
     Button btnsignup;
     DatabaseReference dbRef;
+    CheckBox checkBox;
     User user;
 
     private FirebaseAuth mAuth;
@@ -41,6 +43,7 @@ public class Register extends AppCompatActivity {
         txtemail = findViewById(R.id.email);
         txtphone = findViewById(R.id.phone);
         txtpassword = findViewById(R.id.password);
+        checkBox = findViewById(R.id.checkBox);
 
         btnsignup = findViewById(R.id.signup);
 
@@ -50,63 +53,65 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("User");
-                try {
-                    if (TextUtils.isEmpty(txtfirstname.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the First Name", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtlastname.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the Last Name", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtdob.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the Date Of birth", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtnic.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the NIC", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtaddress.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter the Address", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtemail.getText().toString()))
-                        txtemail.setError("Email cannot be Empty");
-                    else if (TextUtils.isEmpty(txtpassword.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter a Password", Toast.LENGTH_SHORT).show();
-                    else if (txtpassword.length() < 6) {
-                        txtpassword.setError("Password should be more than six characters");
-                        return;
-                    }
-                    else {
-                        user.setFirstname(txtfirstname.getText().toString().trim());
-                        user.setLastname(txtlastname.getText().toString().trim());
-                        user.setAddress(txtaddress.getText().toString().trim());
-                        user.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
-                        user.setDob(txtdob.getText().toString().trim());
-                        user.setEmail(txtemail.getText().toString().trim());
-                        user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
-                        user.setPassword(txtpassword.getText().toString().trim());
+                if (checkBox.isChecked()) {
+                    dbRef = FirebaseDatabase.getInstance().getReference().child("User");
+                    try {
+                        if (TextUtils.isEmpty(txtfirstname.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter the First Name", Toast.LENGTH_SHORT).show();
+                        else if (TextUtils.isEmpty(txtlastname.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter the Last Name", Toast.LENGTH_SHORT).show();
+                        else if (TextUtils.isEmpty(txtdob.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter the Date Of birth", Toast.LENGTH_SHORT).show();
+                        else if (TextUtils.isEmpty(txtnic.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter the NIC", Toast.LENGTH_SHORT).show();
+                        else if (TextUtils.isEmpty(txtaddress.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter the Address", Toast.LENGTH_SHORT).show();
+                        else if (TextUtils.isEmpty(txtemail.getText().toString()))
+                            txtemail.setError("Email cannot be Empty");
+                        else if (TextUtils.isEmpty(txtpassword.getText().toString()))
+                            Toast.makeText(getApplicationContext(), "Please Enter a Password", Toast.LENGTH_SHORT).show();
+                        else if (txtpassword.length() < 6) {
+                            txtpassword.setError("Password should be more than six characters");
+                            return;
+                        } else {
+                            user.setFirstname(txtfirstname.getText().toString().trim());
+                            user.setLastname(txtlastname.getText().toString().trim());
+                            user.setAddress(txtaddress.getText().toString().trim());
+                            user.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
+                            user.setDob(txtdob.getText().toString().trim());
+                            user.setEmail(txtemail.getText().toString().trim());
+                            user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
+                            user.setPassword(txtpassword.getText().toString().trim());
 
-                        //dbRef.push().setValue(user);
-                        dbRef.child("user1").setValue(user);
-                        //Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
-                        clearControls();
-                    }
+                            //dbRef.push().setValue(user);
+                            dbRef.child("user1").setValue(user);
+                            //Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
+                            clearControls();
+                        }
 
-                } catch (NumberFormatException e) {
-                    Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
-                }
-                mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), Login.class));
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+                    }
+                    mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), Login.class));
+                                    } else
+                                        Toast.makeText(getApplicationContext(), "Error. Please Try Again", Toast.LENGTH_SHORT).show();
+
+
                                 }
-                                else
-                                    Toast.makeText(getApplicationContext(), "Error. Please Try Again", Toast.LENGTH_SHORT).show();
-
-
-                            }
-                        });
+                            });
+                }
+                else
+                    checkBox.setError("Please click the user agreement");
+                    Toast.makeText(getApplicationContext(), "Please accept the user agreement", Toast.LENGTH_SHORT).show();
             }
 
         });
