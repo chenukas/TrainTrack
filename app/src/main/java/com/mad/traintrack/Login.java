@@ -49,28 +49,30 @@ public class Login extends AppCompatActivity {
                 user.setEmail(txtmail.getText().toString().trim());
 
 
-                if (TextUtils.isEmpty(user.getEmail())) {
-                    Toast.makeText(getApplicationContext(), "Please Enter the Email", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(user.getEmail()) || TextUtils.isEmpty(user.getPassword())) {
+                    Toast.makeText(getApplicationContext(), "Please Enter the Email and the Password", Toast.LENGTH_SHORT).show();
+                    txtpass.setError("The Password cannot be empty");
+                    txtmail.setError("The Email cannot be empty");
+                    return;
                 }
-                if (TextUtils.isEmpty(user.getPassword())) {
-                    Toast.makeText(getApplicationContext(), "Please Enter a Password", Toast.LENGTH_SHORT).show();
-                }
+                else {
+                    mAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), Home.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Invalid Username and Password", Toast.LENGTH_SHORT).show();
+                                txtpass.setError("The Email or password is incorrect");
+                                txtmail.setError("The Email or password is incorrect");
+                                return;
+                            }
 
-                mAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Home.class));
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Invalid Username and Password", Toast.LENGTH_SHORT).show();
-                            txtpass.setError("The Email or password is incorrect");
-                            txtmail.setError("The Email or password is incorrect");
-                            return;
                         }
 
-                    }
-                });
+                    });
+                }
             }
 
         });

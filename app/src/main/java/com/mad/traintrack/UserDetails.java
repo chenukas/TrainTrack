@@ -20,11 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserDetails extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
-    ToggleButton btnview;
     Button btnupdate;
     Button btnDelete;
     DatabaseReference dbRef;
     User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,58 +39,41 @@ public class UserDetails extends AppCompatActivity {
         txtphone = findViewById(R.id.editText16);
         txtpassword = findViewById(R.id.editText18);
 
-        btnview = findViewById(R.id.toggleButton);
         btnupdate = findViewById(R.id.button9);
         btnDelete = findViewById(R.id.button7);
 
         user = new User();
 
-        btnview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
+        readRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
-                    readRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.hasChildren()) {
-                                txtfirstname.setText(dataSnapshot.child("firstname").getValue().toString());
-                                txtlastname.setText(dataSnapshot.child("lastname").getValue().toString());
-                                txtnic.setText(dataSnapshot.child("nic").getValue().toString());
-                                txtdob.setText(dataSnapshot.child("dob").getValue().toString());
-                                txtaddress.setText(dataSnapshot.child("address").getValue().toString());
-                                txtemail.setText(dataSnapshot.child("email").getValue().toString());
-                                txtphone.setText(dataSnapshot.child("phone").getValue().toString());
-                                txtpassword.setText(dataSnapshot.child("password").getValue().toString());
-                            } else
-                                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-                        }
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()) {
+                    txtfirstname.setText(dataSnapshot.child("firstname").getValue().toString());
+                    txtlastname.setText(dataSnapshot.child("lastname").getValue().toString());
+                    txtnic.setText(dataSnapshot.child("nic").getValue().toString());
+                    txtdob.setText(dataSnapshot.child("dob").getValue().toString());
+                    txtaddress.setText(dataSnapshot.child("address").getValue().toString());
+                    txtemail.setText(dataSnapshot.child("email").getValue().toString());
+                    txtphone.setText(dataSnapshot.child("phone").getValue().toString());
+                    txtpassword.setText(dataSnapshot.child("password").getValue().toString());
+                } else
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
-                    });
-                    txtfirstname.setVisibility(View.VISIBLE);
-                    txtlastname.setVisibility(View.VISIBLE);
-                    txtdob.setVisibility(View.VISIBLE);
-                    txtnic.setVisibility(View.VISIBLE);
-                    txtaddress.setVisibility(View.VISIBLE);
-                    txtpassword.setVisibility(View.VISIBLE);
-                    txtphone.setVisibility(View.VISIBLE);
-                    txtemail.setVisibility(View.VISIBLE);
-                } else {
-                    txtfirstname.setVisibility(View.INVISIBLE);
-                    txtlastname.setVisibility(View.INVISIBLE);
-                    txtdob.setVisibility(View.INVISIBLE);
-                    txtnic.setVisibility(View.INVISIBLE);
-                    txtaddress.setVisibility(View.INVISIBLE);
-                    txtpassword.setVisibility(View.INVISIBLE);
-                    txtphone.setVisibility(View.INVISIBLE);
-                    txtemail.setVisibility(View.INVISIBLE);
-                }
             }
         });
+        txtfirstname.setVisibility(View.VISIBLE);
+        txtlastname.setVisibility(View.VISIBLE);
+        txtdob.setVisibility(View.VISIBLE);
+        txtnic.setVisibility(View.VISIBLE);
+        txtaddress.setVisibility(View.VISIBLE);
+        txtpassword.setVisibility(View.VISIBLE);
+        txtphone.setVisibility(View.VISIBLE);
+        txtemail.setVisibility(View.VISIBLE);
 
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +95,7 @@ public class UserDetails extends AppCompatActivity {
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
                                 dbRef.setValue(user);
-                                clearControls();
+
 
                                 Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
 
@@ -145,8 +128,7 @@ public class UserDetails extends AppCompatActivity {
                             dbRef.removeValue();
                             Toast.makeText(getApplicationContext(), "You have successfully removed the account", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), Login.class));
-                        }
-                        else
+                        } else
                             Toast.makeText(getApplicationContext(), "Error deleting the Account", Toast.LENGTH_SHORT).show();
                     }
 
@@ -160,16 +142,16 @@ public class UserDetails extends AppCompatActivity {
     }
 
 
-        private void clearControls() {
-            txtfirstname.setText("");
-            txtlastname.setText("");
-            txtnic.setText("");
-            txtdob.setText("");
-            txtaddress.setText("");
-            txtemail.setText("");
-            txtphone.setText("");
-            txtpassword.setText("");
-        }
-
+    private void clearControls() {
+        txtfirstname.setText("");
+        txtlastname.setText("");
+        txtnic.setText("");
+        txtdob.setText("");
+        txtaddress.setText("");
+        txtemail.setText("");
+        txtphone.setText("");
+        txtpassword.setText("");
     }
+
+}
 
