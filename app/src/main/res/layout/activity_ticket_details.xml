@@ -4,100 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".TicketDetails">
 
-
-    <Button
-        android:id="@+id/button11"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:background="@color/colorButton"
-        android:text="@string/purchase_ticket"
-        android:textColor="@color/white"
+        android:text="@string/ticket_details"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100000024" />
 
-    <Button
-        android:id="@+id/button12"
+    <EditText
+        android:id="@+id/editText3"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:background="@color/colorButton"
-        android:text="@string/view_tickets"
-        android:textColor="@color/white"
+        android:ems="10"
+        android:hint="@string/select_date"
+        android:importantForAutofill="no"
+        android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.6" />
 
-    <Button
-        android:id="@+id/button13"
+    <EditText
+        android:id="@+id/editText8"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:background="@color/colorButton"
-        android:text="@string/view_schedule"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39999998" />
-
-    <Button
-        android:id="@+id/button14"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@color/colorButton"
-        android:text="@string/pageName"
-        android:textColor="@color/white"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/name_initials"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.25"
+        tools:targetApi="o" />
 
-    <Button
-        android:id="@+id/button15"
+    <EditText
+        android:id="@+id/editText10"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/phone"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        tools:targetApi="o" />
+
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nic"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000002"
+        tools:targetApi="o" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorButton"
-        android:text="@string/recent_payment"
+        android:text="@string/proceed"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.95" />
 
-    <Button
-        android:id="@+id/userprofile"
+    <EditText
+        android:id="@+id/editText20"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:background="@color/colorButton"
-        android:text="@string/user_profile"
-        android:textColor="@color/white"
+        android:ems="10"
+        android:hint="@string/select_class"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.7" />
 
-    <TextView
-        android:id="@+id/textView15"
+    <EditText
+        android:id="@+id/editText21"
         android:layout_width="300dp"
-        android:layout_height="20dp"
-        android:text="----------------------------------------------------------------------------------"
-        android:textAlignment="center"
-        android:textStyle="bold"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="@string/no_of_seats"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.64" />
-
+        app:layout_constraintVertical_bias="0.816" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

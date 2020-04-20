@@ -124,27 +124,30 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="44dp"
         android:background="@color/colorButton"
         android:text="@string/update"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="44dp"
+        android:background="@color/colorButton"
         android:text="@string/delete_profile"
         android:textColor="@color/white"
-        android:background="@color/colorButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.889" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

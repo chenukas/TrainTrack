@@ -58,5 +58,27 @@
     <string name="user_profile">User Profile</string>
     <string name="update">Update</string>
     <string name="delete_profile">Delete Profile</string>
+    <string name="schedule_train">Train Schedule</string>
+    <string name="search">Search</string>
+    <string name="purchase_ticket">Purchase Ticket</string>
+    <string name="view_tickets">View Tickets</string>
+    <string name="view_schedule">View Schedule</string>
+    <string name="find_train">Find Train</string>
+    <string name="select_a_train">Select a train</string>
+    <string name="sample_train">Sample Train</string>
+    <string name="next">Next</string>
+    <string name="ticket_details">Ticket Details</string>
+    <string name="name_initials">Name with initials</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_class">Select Class</string>
+    <string name="no_of_seats">No. of Seats</string>
+    <string name="proceed">Proceed</string>
+    <string name="tickets">Tickets</string>
+    <string name="type_here">Type here...</string>
+    <string name="ticketid">#ticketId</string>
+    <string name="trainid">#trainId</string>
+    <string name="trainclass">Class</string>
+    <string name="cls">Class</string>
+    <string name="logout">Logout</string>
 
 </resources>
