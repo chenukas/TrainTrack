@@ -80,6 +80,9 @@
     <string name="trainclass">Class</string>
     <string name="cls">Class</string>
     <string name="logout">Logout</string>
+    <string name="Share_us"><u>Click Here to Share TrainTrack</u></string>
+
+    <string name="title">Frequently Asked Questions</string>
 
     <string-array name="stationsFrom">
         <item>From:</item>

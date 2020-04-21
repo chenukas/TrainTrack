@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserDetails extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
-    Button btnupdate;
+    Button btnupdate, btnshare;
     Button btnDelete;
     DatabaseReference dbRef;
     User user;
@@ -43,6 +43,7 @@ public class UserDetails extends AppCompatActivity {
 
         btnupdate = findViewById(R.id.button9);
         btnDelete = findViewById(R.id.button7);
+        btnshare = findViewById(R.id.button16);
 
         user = new User();
 
@@ -76,6 +77,20 @@ public class UserDetails extends AppCompatActivity {
         txtpassword.setVisibility(View.VISIBLE);
         txtphone.setVisibility(View.VISIBLE);
         txtemail.setVisibility(View.VISIBLE);
+
+        btnshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Please find us in google play";
+                String shareSub = "TRAINTRACK - Find your train easy";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
+            }
+        });
 
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
