@@ -63,8 +63,8 @@
     <string name="purchase_ticket">Purchase Ticket</string>
     <string name="view_tickets">View Tickets</string>
     <string name="view_schedule">View Schedule</string>
-    <string name="find_train">Find Train</string>
-    <string name="select_a_train">Select a train</string>
+    <string name="find_train">Find a Train</string>
+    <string name="available">Available Trains</string>
     <string name="sample_train">Sample Train</string>
     <string name="next">Next</string>
     <string name="ticket_details">Ticket Details</string>
@@ -80,5 +80,23 @@
     <string name="trainclass">Class</string>
     <string name="cls">Class</string>
     <string name="logout">Logout</string>
+
+    <string-array name="stationsFrom">
+        <item>From:</item>
+        <item>Badulla</item>
+        <item>Colombo Fort</item>
+        <item>Galle</item>
+        <item>Gampola</item>
+        <item>Kandy</item>
+    </string-array>
+
+    <string-array name="stationsTo">
+        <item>To:</item>
+        <item>Badulla</item>
+        <item>Colombo Fort</item>
+        <item>Galle</item>
+        <item>Gampola</item>
+        <item>Kandy</item>
+    </string-array>
 
 </resources>

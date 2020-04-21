@@ -17,10 +17,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
-    <EditText
-        android:id="@+id/editText7"
+    <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -33,10 +33,10 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.20999998" />
 
-    <EditText
-        android:id="@+id/editText19"
+    <Spinner
+        android:id="@+id/spinner2"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <Button
         android:id="@+id/button8"
@@ -62,42 +62,32 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintVertical_bias="0.42000002" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="@string/select_a_train"
+        android:text="@string/available"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.55" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <ListView
+        android:id="@+id/searchResult"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/sample_train"
+        android:layout_marginStart="16dp"
+        android:background="#003D3D3D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.20999998" />
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:textColor="@color/white"
-        android:background="@color/colorButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
 </androidx.constraintlayout.widget.ConstraintLayout>
