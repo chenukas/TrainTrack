@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void run() {
 
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(MainActivity.this, AddNewCard.class);
                 startActivity(i);
 
                 finish();
