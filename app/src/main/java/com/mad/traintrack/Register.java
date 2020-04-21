@@ -111,7 +111,7 @@ public class Register extends AppCompatActivity {
                 }
                 else
                     checkBox.setError("Please click the user agreement");
-                    Toast.makeText(getApplicationContext(), "Please accept the user agreement", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "Please accept the user agreement", Toast.LENGTH_SHORT).show();
             }
 
         });

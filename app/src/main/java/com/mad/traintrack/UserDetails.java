@@ -1,8 +1,10 @@
 package com.mad.traintrack;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -119,39 +121,43 @@ public class UserDetails extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("User");
-                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild("user1")) {
-                            dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
-                            dbRef.removeValue();
-                            Toast.makeText(getApplicationContext(), "You have successfully removed the account", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Login.class));
-                        } else
-                            Toast.makeText(getApplicationContext(), "Error deleting the Account", Toast.LENGTH_SHORT).show();
-                    }
+                AlertDialog.Builder altdial = new AlertDialog.Builder(UserDetails.this);
+                altdial.setMessage("Are you sure you want to delete the account?").setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("User");
+                                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.hasChild("user1")) {
+                                            dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("user1");
+                                            dbRef.removeValue();
+                                            Toast.makeText(getApplicationContext(), "You have successfully removed the account", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), Login.class));
+                                        } else
+                                            Toast.makeText(getApplicationContext(), "Error deleting the Account", Toast.LENGTH_SHORT).show();
+                                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = altdial.create();
+                alert.setTitle("WARNING");
+                alert.show();
+
             }
         });
     }
-
-
-    private void clearControls() {
-        txtfirstname.setText("");
-        txtlastname.setText("");
-        txtnic.setText("");
-        txtdob.setText("");
-        txtaddress.setText("");
-        txtemail.setText("");
-        txtphone.setText("");
-        txtpassword.setText("");
-    }
-
 }
 
