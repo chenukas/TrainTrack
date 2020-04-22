@@ -11,12 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.DatabaseRegistrar;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -72,7 +70,7 @@ public class SearchTrain extends AppCompatActivity implements AdapterView.OnItem
                                 startTime.add(route.getStartTime());
                             }
                         }
-                        time = new ArrayAdapter<>(getApplicationContext(),R.layout.custom_list,startTime);
+                        time = new ArrayAdapter<>(getApplicationContext(),R.layout.custom_list_item,startTime);
                         searchResult.setAdapter(time);
                     }
 
@@ -88,8 +86,8 @@ public class SearchTrain extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedRouteId = routeId.get(position);
-                Toast.makeText(getApplicationContext(), selectedRouteId, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SearchTrain.this, TicketDetails.class);
+                intent.putExtra("selectedRouteId", selectedRouteId);
                 startActivity(intent);
             }
         });
