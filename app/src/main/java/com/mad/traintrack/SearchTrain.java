@@ -88,8 +88,8 @@ public class SearchTrain extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedRouteId = routeId.get(position);
-                Toast.makeText(getApplicationContext(), selectedRouteId, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SearchTrain.this, TicketDetails.class);
+                intent.putExtra("selectedRouteId", selectedRouteId);
                 startActivity(intent);
             }
         });
