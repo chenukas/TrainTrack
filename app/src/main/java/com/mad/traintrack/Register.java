@@ -86,8 +86,8 @@ public class Register extends AppCompatActivity {
                             user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
                             user.setPassword(txtpassword.getText().toString().trim());
 
-                            //dbRef.push().setValue(user);
-                            dbRef.child("user1").setValue(user);
+                            String id = dbRef.push().getKey();
+                            dbRef.child(id).setValue(user);
                             //Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                             clearControls();
                         }
@@ -111,7 +111,7 @@ public class Register extends AppCompatActivity {
                 }
                 else
                     checkBox.setError("Please click the user agreement");
-                    Toast.makeText(getApplicationContext(), "Please accept the user agreement", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "Please accept the user agreement", Toast.LENGTH_SHORT).show();
             }
 
         });
