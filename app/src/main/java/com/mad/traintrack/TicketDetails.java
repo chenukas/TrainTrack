@@ -132,6 +132,7 @@ public class TicketDetails extends AppCompatActivity implements AdapterView.OnIt
                     Toast.makeText(getApplicationContext(),"Saved: "+ id, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(TicketDetails.this, Payment.class);
                     startActivity(intent);
+                    clearFields();
                 }
             }
         });
@@ -161,5 +162,13 @@ public class TicketDetails extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void clearFields() {
+        inputName.setText("");
+        inputNic.setText("");
+        inputMobile.setText("");
+        inputDate.setText("");
+        inputNoPassengers.setText("");
     }
 }
