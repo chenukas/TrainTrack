@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.100000024" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/from"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:ems="10"
@@ -56,7 +56,7 @@
         android:hint="@string/security_code"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editText3"
+        app:layout_constraintStart_toStartOf="@+id/from"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
         tools:targetApi="o" />

@@ -3,10 +3,10 @@
     <string name="pageName">Trip Reminder</string>
     <string name="addReminder">+New Reminder</string>
     <string name="buttonAdd">Add Reminder</string>
-    <string name="name">Name</string>
-    <string name="content">Content</string>
-    <string name="from">From</string>
-    <string name="to">To</string>
+    <string name="name">Reminder Name</string>
+    <string name="content">Reminder Content</string>
+    <string name="from">Beginning</string>
+    <string name="to">Destination</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="remind">Set Reminder Before</string>
