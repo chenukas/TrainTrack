@@ -20,12 +20,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 
 public class AddReminder extends AppCompatActivity {
-    public static final String CHANNEL_ID = "newNotification";
 
     EditText txtName, txtContent, txtFrom, txtTo, txtDate, txtTime, txtSetTime;
     Button buttonAddRemind, buttonSave;
-    DatabaseReference dbRef;
+    //DatabaseReference dbRef;
     Reminder remind;
+    String name, content, from, where, date;
+    String id;
 
     private void clearControls(){
         txtName.setText("");
@@ -55,44 +56,44 @@ public class AddReminder extends AppCompatActivity {
 
         remind = new Reminder();
 
+        final DatabaseReference dbInputRef = FirebaseDatabase.getInstance().getReference("reminder");
+
         //Add Remind
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Reminder");
-
-                try {
                     if (TextUtils.isEmpty(txtName.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter a name", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtContent.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter a content", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtFrom.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter a place", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Please enter the place", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtTo.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter your destination", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtDate.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter a date", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Please enter the date", Toast.LENGTH_SHORT).show();
                     else {
+                        name = txtName.getText().toString();
+                        content = txtContent.getText().toString();
+                        from = txtFrom.getText().toString();
+                        where = txtTo.getText().toString();
+                        date = txtDate.getText().toString();
 
-                        remind.setName(txtName.getText().toString().trim());
-                        remind.setContent(txtContent.getText().toString().trim());
-                        remind.setFrom(txtFrom.getText().toString().trim());
-                        remind.setWhere(txtTo.getText().toString().trim());
+                        id = dbInputRef.push().getKey();
 
-                        dbRef.push().setValue(remind);
-                        //dbRef.child("Reminder01").setValue(remind);
+                        remind.setName(name);
+                        remind.setContent(content);
+                        remind.setFrom(from);
+                        remind.setWhere(where);
+                        remind.setDate(date);
 
+                        dbInputRef.child(id).setValue(remind);
                         Toast.makeText(getApplicationContext(), "Created Reminder successfully", Toast.LENGTH_SHORT).show();
                         clearControls();
                     }
-                } catch (NumberFormatException e) {
-                    Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
                 }
-
-            }
-
         });
 
         /*public void createNotification() {

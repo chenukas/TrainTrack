@@ -8,11 +8,17 @@ public class Reminder {
     private String content;
     private String from;
     private String where;
-    private int date;
-    private Time time;
+    private String date;
 
-    public Reminder(){
+    public Reminder() {
+    }
 
+    public Reminder(String name, String content, String from, String where, String date) {
+        this.name = name;
+        this.content = content;
+        this.from = from;
+        this.where = where;
+        this.date = date;
     }
 
     public String getName() {
@@ -47,20 +53,11 @@ public class Reminder {
         this.where = where;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
 }
