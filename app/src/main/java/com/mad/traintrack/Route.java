@@ -8,14 +8,14 @@ public class Route {
     private String to;
     private String endTime;
     private String type;
-    private String firstClass;
-    private String secondClass;
-    private String thirdClass;
+    private double firstClass;
+    private double secondClass;
+    private double thirdClass;
 
     public Route() {
     }
 
-    public Route(String routeId, String trainNo, String from, String startTime, String to, String endTime, String type, String firstClass, String secondClass, String thirdClass) {
+    public Route(String routeId, String trainNo, String from, String startTime, String to, String endTime, String type, double firstClass, double secondClass, double thirdClass) {
         this.routeId = routeId;
         this.trainNo = trainNo;
         this.from = from;
@@ -56,15 +56,15 @@ public class Route {
         return type;
     }
 
-    public String getFirstClass() {
+    public double getFirstClass() {
         return firstClass;
     }
 
-    public String getSecondClass() {
+    public double getSecondClass() {
         return secondClass;
     }
 
-    public String getThirdClass() {
+    public double getThirdClass() {
         return thirdClass;
     }
 }
