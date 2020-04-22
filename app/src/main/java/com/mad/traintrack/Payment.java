@@ -29,6 +29,8 @@ public class Payment extends AppCompatActivity {
         payNow = findViewById(R.id.button6);
 
         cardResult = new ArrayList<>();
+        Intent intent = getIntent();
+        final String Value1 = intent.getStringExtra("Value1");
 
         addNewCard();
         pay();
