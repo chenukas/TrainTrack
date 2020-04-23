@@ -24,9 +24,10 @@ public class AddNewCard extends AppCompatActivity {
     EditText cardNo, cvv, expDate, name;
     Button  btndone;
     Switch save;
+    String s;
     DatabaseReference dbRef;
     PaymentHandle paymentHandle;
-    long maxId = 0;
+    long cardId = 0;
 
 
     @Override
@@ -41,13 +42,14 @@ public class AddNewCard extends AppCompatActivity {
         save = (Switch) findViewById(R.id.switch1);
         btndone = (Button) findViewById(R.id.button4);
 
+
         paymentHandle = new PaymentHandle();
         dbRef = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
-                    maxId = (dataSnapshot.getChildrenCount());
+                    cardId = (dataSnapshot.getChildrenCount());
             }
 
             @Override
@@ -64,34 +66,45 @@ public class AddNewCard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                final Float cardno = Float.parseFloat(cardNo.getText().toString().trim());
-                Float cvv0 = Float.parseFloat(cvv.getText().toString().trim());
+                final Integer cardno = Integer.parseInt(cardNo.getText().toString().trim());
+                Integer cvv0 = Integer.parseInt(cvv.getText().toString().trim());
                 paymentHandle.setDate(expDate.getText().toString().trim());
                 paymentHandle.setName(name.getText().toString().trim());
                 paymentHandle.setCardNo(cardno);
                 paymentHandle.setCvv(cvv0);
-                dbRef.child(String.valueOf(maxId+1)).setValue(paymentHandle);
+                dbRef.child(String.valueOf(cardId+1)).setValue(paymentHandle);
+                clearFields();
 
-                save.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                /*save.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked == true){
-                            Intent intent = new Intent(AddNewCard.this,Payment.class);
-                            intent.putExtra("cardNo", cardno );
+                           cardno.toString();
+                           Intent i = new Intent(AddNewCard.this, Payment.class);
 
+                            i.putExtra("cardNo", s);
                         }
 
                     }
-                });
+                });*/
 
                 Toast.makeText(AddNewCard.this, "card inserted successfully", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AddNewCard.this, Payment.class);
                 startActivity(intent);
             }
 
+
         });
 
 
+
+    }
+    private void clearFields() {
+        cardNo.setText("");
+        cvv.setText("");
+        expDate.setText("");
+        name.setText("");
     }
 }
 

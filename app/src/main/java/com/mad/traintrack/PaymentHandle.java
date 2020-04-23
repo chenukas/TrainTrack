@@ -2,33 +2,34 @@ package com.mad.traintrack;
 
 public class PaymentHandle {
 
-    private Float cardNo;
-    private Float cvv;
+    private Integer cardNo;
+    private Integer cvv;
     private String date;
     private String name;
-    private  Float amount;
 
-    public Float getAmount() {
-        return amount;
+    public PaymentHandle() {
     }
 
-    public void setAmount(Float amount) {
-        this.amount = amount;
+    public PaymentHandle(Integer cardNo, Integer cvv, String date, String name) {
+        this.cardNo = cardNo;
+        this.cvv = cvv;
+        this.date = date;
+        this.name = name;
     }
 
-    public Float getCardNo() {
+    public Integer getCardNo() {
         return cardNo;
     }
 
-    public void setCardNo(Float cardNo) {
+    public void setCardNo(Integer cardNo) {
         this.cardNo = cardNo;
     }
 
-    public Float getCvv() {
+    public Integer getCvv() {
         return cvv;
     }
 
-    public void setCvv(Float cvv) {
+    public void setCvv(Integer cvv) {
         this.cvv = cvv;
     }
 

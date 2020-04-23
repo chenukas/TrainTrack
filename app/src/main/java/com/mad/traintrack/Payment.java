@@ -36,15 +36,15 @@ public class Payment extends AppCompatActivity {
         pay();
         tripDetails();
 
-        cardCheck.setOnClickListener(new View.OnClickListener() {
+       /* cardCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                if(cardCheck.isChecked())
-                   cardResult.add("");
+                   final String cardNo = i.getStringExtra("s");
                else
                    cardResult.add("");
             }
-        });
+        });*/
     }
 
 
