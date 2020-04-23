@@ -2,7 +2,11 @@
     <string name="app_name">TrainTrack</string>
     <string name="pageName">Trip Reminder</string>
     <string name="addReminder">+New Reminder</string>
-    <string name="buttonAdd">Add Reminder</string>
+    <string name="buttonUpdate">Update Reminder</string>
+    <string name="reminder_name">Reminder Name</string>
+    <string name="reminder_content">Reminder Content</string>
+    <string name="begin">Beginning</string>
+    <string name="end">Destination</string>
     <string name="name">Name</string>
     <string name="content">Content</string>
     <string name="from">From</string>

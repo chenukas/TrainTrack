@@ -20,11 +20,11 @@
         app:layout_constraintVertical_bias="0.100000024" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/updateRemind"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorButton"
-        android:text="@string/buttonAdd"
+        android:text="@string/buttonUpdate"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,13 +39,13 @@
         android:ems="10"
         android:hint="@string/date"
         android:inputType="date"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText4"
+        app:layout_constraintBaseline_toBaselineOf="@+id/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/time"
         android:layout_width="140dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.75" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/setTime"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.85" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/saveRemind"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorButton"
@@ -86,11 +86,11 @@
         app:layout_constraintVertical_bias="0.95" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/remindName"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/name"
+        android:hint="@string/reminder_name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,12 +99,12 @@
         app:layout_constraintVertical_bias="0.35000002" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/remindContent"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/content"
+        android:hint="@string/reminder_content"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +117,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/from"
+        android:hint="@string/begin"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,11 +126,11 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/toWhere"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/to"
+        android:hint="@string/end"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
