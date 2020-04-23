@@ -74,6 +74,7 @@
     <string name="no_of_passengers">No. of Passengers</string>
     <string name="proceed">Proceed</string>
     <string name="tickets">Tickets</string>
+    <string name="purchased_tickets">Purchased Tickets</string>
     <string name="type_here">Type here...</string>
     <string name="ticketid">#ticketId</string>
     <string name="trainid">#trainId</string>
@@ -83,6 +84,12 @@
     <string name="Share_us"><u>Click Here to Share TrainTrack</u></string>
 
     <string name="title">Frequently Asked Questions</string>
+    <string name="ticket_header">Your Ticket</string>
+    <string name="ticket_holders_details">Ticket Holder\'s Details</string>
+    <string name="note">*All the tickets are displayed here according to their unique IDs, Please press them to view e-Ticket</string>
+    <string name="journey_details">Journey Details</string>
+    <string name="trainid_class"><![CDATA[Your Train & Class]]></string>
+
 
     <string-array name="stationsFrom">
         <item>From:</item>
