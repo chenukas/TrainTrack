@@ -4,6 +4,7 @@ import java.sql.Time;
 
 public class Reminder {
 
+    private String remindID;
     private String name;
     private String content;
     private String from;
@@ -13,12 +14,21 @@ public class Reminder {
     public Reminder() {
     }
 
-    public Reminder(String name, String content, String from, String where, String date) {
+    public Reminder(String remindID,String name, String content, String from, String where, String date) {
+        this.remindID = remindID;
         this.name = name;
         this.content = content;
         this.from = from;
         this.where = where;
         this.date = date;
+    }
+
+    public String getRemindID() {
+        return remindID;
+    }
+
+    public void setRemindID(String remindID) {
+        this.remindID = remindID;
     }
 
     public String getName() {

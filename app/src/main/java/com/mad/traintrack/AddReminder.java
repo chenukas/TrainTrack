@@ -1,12 +1,8 @@
 package com.mad.traintrack;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,16 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Calendar;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddReminder extends AppCompatActivity {
 
     EditText txtName, txtContent, txtFrom, txtTo, txtDate, txtTime, txtSetTime;
-    Button buttonAddRemind, buttonSave;
-    //DatabaseReference dbRef;
+    Button buttonUpdate, buttonAdd;
+    DatabaseReference dbInputRef;
     Reminder remind;
     String name, content, from, where, date;
     String id;
@@ -45,22 +42,22 @@ public class AddReminder extends AppCompatActivity {
 
         txtName = findViewById(R.id.remindName);
         txtContent = findViewById(R.id.remindContent);
-        txtFrom = findViewById(R.id.from);
+        txtFrom = findViewById(R.id.editText3);
         txtTo = findViewById(R.id.toWhere);
         txtDate = findViewById(R.id.date);
         txtTime = findViewById(R.id.time);
         txtSetTime = findViewById(R.id.setTime);
 
-        buttonAddRemind = findViewById(R.id.addRemind);
-        buttonSave = findViewById(R.id.saveRemind);
+        buttonAdd = findViewById(R.id.saveRemind);
+        buttonUpdate = findViewById(R.id.updateRemind);
 
         remind = new Reminder();
 
-        final DatabaseReference dbInputRef = FirebaseDatabase.getInstance().getReference("reminder");
+        dbInputRef = FirebaseDatabase.getInstance().getReference("reminder");
 
         //Add Remind
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -94,6 +91,57 @@ public class AddReminder extends AppCompatActivity {
                         clearControls();
                     }
                 }
+        });
+
+        DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference("Reminder");
+        viewRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren()){
+                    txtName.setText(dataSnapshot.child("name").getValue().toString());
+                    txtContent.setText(dataSnapshot.child("content").getValue().toString());
+                    txtFrom.setText(dataSnapshot.child("from").getValue().toString());
+                    txtTo.setText(dataSnapshot.child("where").getValue().toString());
+                    txtDate.setText(dataSnapshot.child("date").getValue().toString());
+                }else{
+                    Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 final DatabaseReference updateRef = FirebaseDatabase.getInstance().getReference().child("Reminder");
+                 updateRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                         if(dataSnapshot.hasChild(id)){
+                             remind.setName(txtName.getText().toString().trim());
+                             remind.setContent(txtContent.getText().toString().trim());
+                             remind.setFrom(txtFrom.getText().toString().trim());
+                             remind.setWhere(txtTo.getText().toString().trim());
+                             remind.setDate(txtDate.getText().toString().trim());
+
+                             dbInputRef = FirebaseDatabase.getInstance().getReference().child("Reminder").child("Id");
+                             dbInputRef.setValue("Id");
+                             clearControls();
+
+                             Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+                         }
+                     }
+
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                     }
+                 });
+            }
         });
 
         /*public void createNotification() {

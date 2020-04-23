@@ -34,12 +34,13 @@
         app:layout_constraintVertical_bias="0.20999998" />
 
     <ListView
-        android:layout_width="300dp"
-        android:layout_height="350dp"
+        android:id="@+id/reminderlist"
+        android:layout_width="295dp"
+        android:layout_height="423dp"
         android:background="@color/listColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintTop_toBottomOf="@+id/newRemind" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

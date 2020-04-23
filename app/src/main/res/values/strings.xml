@@ -2,11 +2,15 @@
     <string name="app_name">TrainTrack</string>
     <string name="pageName">Trip Reminder</string>
     <string name="addReminder">+New Reminder</string>
-    <string name="buttonAdd">Add Reminder</string>
-    <string name="name">Reminder Name</string>
-    <string name="content">Reminder Content</string>
-    <string name="from">Beginning</string>
-    <string name="to">Destination</string>
+    <string name="buttonUpdate">Update Reminder</string>
+    <string name="reminder_name">Reminder Name</string>
+    <string name="reminder_content">Reminder Content</string>
+    <string name="begin">Beginning</string>
+    <string name="end">Destination</string>
+    <string name="name">Name</string>
+    <string name="content">Content</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="remind">Set Reminder Before</string>
@@ -74,6 +78,7 @@
     <string name="no_of_passengers">No. of Passengers</string>
     <string name="proceed">Proceed</string>
     <string name="tickets">Tickets</string>
+    <string name="purchased_tickets">Purchased Tickets</string>
     <string name="type_here">Type here...</string>
     <string name="ticketid">#ticketId</string>
     <string name="trainid">#trainId</string>
@@ -83,6 +88,12 @@
     <string name="Share_us"><u>Click Here to Share TrainTrack</u></string>
 
     <string name="title">Frequently Asked Questions</string>
+    <string name="ticket_header">Your Ticket</string>
+    <string name="ticket_holders_details">Ticket Holder\'s Details</string>
+    <string name="note">*All the tickets are displayed here according to their unique IDs, Please press them to view e-Ticket</string>
+    <string name="journey_details">Journey Details</string>
+    <string name="trainid_class"><![CDATA[Your Train & Class]]></string>
+
 
     <string-array name="stationsFrom">
         <item>From:</item>
