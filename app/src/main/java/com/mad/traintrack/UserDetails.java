@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserDetails extends AppCompatActivity {
     EditText txtfirstname, txtlastname, txtnic, txtdob, txtaddress, txtemail, txtphone, txtpassword;
-    Button btnupdate, btnshare;
+    Button btnupdate, btnshare, btnfaq;
     Button btnDelete;
     DatabaseReference dbRef;
     User user;
@@ -44,6 +44,7 @@ public class UserDetails extends AppCompatActivity {
         btnupdate = findViewById(R.id.button9);
         btnDelete = findViewById(R.id.button7);
         btnshare = findViewById(R.id.button16);
+        btnfaq = findViewById(R.id.button17);
 
         user = new User();
 
@@ -171,6 +172,13 @@ public class UserDetails extends AppCompatActivity {
                 alert.setTitle("WARNING");
                 alert.show();
 
+            }
+        });
+
+        btnfaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), faq.class));
             }
         });
     }
