@@ -86,8 +86,7 @@ public class Register extends AppCompatActivity {
                             user.setNic(Integer.parseInt(txtnic.getText().toString().trim()));
                             user.setPassword(txtpassword.getText().toString().trim());
 
-                            String id = dbRef.push().getKey();
-                            dbRef.child(id).setValue(user);
+                            dbRef.child("user1").setValue(user);
                             //Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                             clearControls();
                         }

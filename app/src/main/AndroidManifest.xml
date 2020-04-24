@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ticket"></activity>
+        <activity android:name=".updateCard"></activity>
+        <activity android:name=".Ticket" />
         <activity android:name=".PurchasedTickets" />
         <activity android:name=".TicketDetails" />
         <activity android:name=".SearchTrain" />
@@ -21,6 +22,7 @@
         <activity android:name=".Home" />
         <activity android:name=".AddReminder" />
         <activity android:name=".ViewReminder" />
+        <activity android:name=".faq" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

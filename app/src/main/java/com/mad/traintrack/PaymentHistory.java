@@ -48,7 +48,7 @@ public class PaymentHistory extends AppCompatActivity {
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     //list.add(snapshot.getValue().toString());
                     PaymentHandle paymentHandle = snapshot.getValue(PaymentHandle.class);
-                    String txt = paymentHandle.getDate()+"  "+paymentHandle.getName()+"-"+paymentHandle.getCvv().toString()+ "  total- "+paymentHandle.getCardNo().toString();
+                    String txt = paymentHandle.getDate()+"  "+paymentHandle.getCardID()+"-"+paymentHandle.getCvv().toString()+ "  total- "+paymentHandle.getCardNo().toString();
                     list.add(txt);
                 }
                    adapter.notifyDataSetChanged();

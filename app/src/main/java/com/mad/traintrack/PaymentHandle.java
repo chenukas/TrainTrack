@@ -2,6 +2,7 @@ package com.mad.traintrack;
 
 public class PaymentHandle {
 
+    private String cardID;
     private Integer cardNo;
     private Integer cvv;
     private String date;
@@ -10,11 +11,20 @@ public class PaymentHandle {
     public PaymentHandle() {
     }
 
-    public PaymentHandle(Integer cardNo, Integer cvv, String date, String name) {
+    public PaymentHandle(String cardID,Integer cardNo, Integer cvv, String date, String name) {
+        this.cardID = cardID;
         this.cardNo = cardNo;
         this.cvv = cvv;
         this.date = date;
         this.name = name;
+    }
+
+    public String getCardID() {
+        return cardID;
+    }
+
+    public void setCardID(String cardID) {
+        this.cardID = cardID;
     }
 
     public Integer getCardNo() {
