@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100000024" />
 
-    <EditText
-        android:id="@+id/editText7"
+    <Spinner
+        android:id="@+id/selectFrom"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -33,10 +33,10 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.229" />
 
-    <EditText
-        android:id="@+id/editText19"
+    <Spinner
+        android:id="@+id/selectTo"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -48,10 +48,10 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintVertical_bias="0.337" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnSearch"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorButton"
@@ -65,13 +65,14 @@
         app:layout_constraintVertical_bias="0.474" />
 
     <ListView
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:id="@+id/trainList"
+        android:layout_width="285dp"
+        android:layout_height="265dp"
         android:background="@color/listColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
