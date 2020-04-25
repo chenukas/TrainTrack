@@ -123,4 +123,5 @@
     <string name="updateReminder">Update Reminder</string>
     <string name="reminderId">Reminder Id</string>
     <string name="deleteButton">Delete Reminder</string>
+    <string name="updateNote">Note: Since all the notices are based on your start and the destination of journey, you are not allowed to update them.</string>
 </resources>
