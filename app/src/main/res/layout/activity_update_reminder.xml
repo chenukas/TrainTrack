@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddReminder">
+    tools:context=".UpdateReminder">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:text="@string/pageName"
+        android:text="@string/updateReminder"
         android:textColor="@color/colorAccent"
-        android:textSize="40sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,17 +22,42 @@
 
     <EditText
         android:id="@+id/date"
-        android:layout_width="300dp"
+        android:layout_width="140dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/select_date"
+        android:hint="@string/date"
         android:inputType="date"
+        app:layout_constraintBaseline_toBaselineOf="@+id/time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/time"
+        android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
+
+    <EditText
+        android:id="@+id/setTime"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/remind"
+        android:inputType="time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
 
     <Button
         android:id="@+id/saveRemind"
@@ -57,10 +82,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <EditText
         android:id="@+id/remindContent"
@@ -72,12 +97,12 @@
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.354" />
 
-    <Spinner
+    <EditText
         android:id="@+id/editText3"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -86,12 +111,12 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintVertical_bias="0.499" />
 
-    <Spinner
+    <EditText
         android:id="@+id/toWhere"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -100,9 +125,9 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintVertical_bias="0.609" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
