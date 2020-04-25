@@ -120,4 +120,7 @@
         <item>Third</item>
     </string-array>
 
+    <string name="updateReminder">Update Reminder</string>
+    <string name="reminderId">Reminder Id</string>
+    <string name="deleteButton">Delete Reminder</string>
 </resources>
