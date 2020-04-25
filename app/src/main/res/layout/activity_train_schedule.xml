@@ -19,60 +19,50 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100000024" />
 
-    <Spinner
-        android:id="@+id/selectFrom"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="@string/from"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+    <ListView
+        android:id="@+id/trainList"
+        android:layout_width="287dp"
+        android:layout_height="262dp"
+        android:background="@color/listColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/selectTo"
+        android:id="@+id/From"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:ems="10"
+        android:layout_marginTop="48dp"
+        android:hint="@string/from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <Spinner
+        android:id="@+id/To"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="376dp"
         android:hint="@string/to"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/trainList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toBottomOf="@+id/selectFrom" />
 
     <Button
-        android:id="@+id/btnSearch"
+        android:id="@+id/Search"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorButton"
         android:text="@string/search"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/trainList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
-
-    <ListView
-        android:id="@+id/trainList"
-        android:layout_width="285dp"
-        android:layout_height="265dp"
-        android:background="@color/listColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/From"
+        app:layout_constraintVertical_bias="0.783" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
