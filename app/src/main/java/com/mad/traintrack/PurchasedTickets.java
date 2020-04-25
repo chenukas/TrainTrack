@@ -23,6 +23,7 @@ public class PurchasedTickets extends AppCompatActivity {
     ArrayList<String> ticketIds;
     ArrayAdapter ticketId;
     ListView ticketList;
+   // String loggedUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,9 @@ public class PurchasedTickets extends AppCompatActivity {
                     for (DataSnapshot dSnapshot:dataSnapshot.getChildren()) {
                         TicketDescription ticketDescription = dSnapshot.getValue(TicketDescription.class);
                         assert ticketDescription != null;
-                        ticketIds.add(ticketDescription.getTicketId());
+                        //if (loggedUserId.equals(ticketDescription.getPurchasedBy())) {
+                            ticketIds.add(ticketDescription.getTicketId());
+                       // }
                     }
                     ticketId = new ArrayAdapter<>(getApplicationContext(),R.layout.custom_list_item,ticketIds);
                     ticketList.setAdapter(ticketId);
