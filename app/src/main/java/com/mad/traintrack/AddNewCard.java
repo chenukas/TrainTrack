@@ -29,7 +29,7 @@ public class AddNewCard extends AppCompatActivity {
     Switch save;
     DatabaseReference dbRef;
     PaymentHandle paymentHandle;
-    String id;
+    String id, cardNum, scvv,sname, sdate;
 
 
     private void clearFields() {
@@ -57,7 +57,10 @@ public class AddNewCard extends AppCompatActivity {
         paymentHandle = new PaymentHandle();
         dbRef = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
 
+
         updateCardDetails();
+
+
 
 
 
@@ -75,10 +78,10 @@ public class AddNewCard extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter your name ", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    displayCard = cardNo.getText().toString();
-                    displayExp = expDate.getText().toString();
-                    displayCvv = cvv.getText().toString();
-                    displayName = name.getText().toString();
+                   displayCard = cardNo.getText().toString();
+                   displayExp = expDate.getText().toString();
+                   displayCvv = cvv.getText().toString();
+                   displayName = name.getText().toString();
 
 
                     id = dbRef.push().getKey();
@@ -89,16 +92,30 @@ public class AddNewCard extends AppCompatActivity {
                     paymentHandle.setName(displayName);
                     paymentHandle.setCardID(id);
 
+                    int cardnumber = Integer.parseInt(cardNo.getText().toString());
 
                     dbRef.child(id).setValue(paymentHandle);
+                    //dbRef.child(cardNum).setValue(paymentHandle);
+
                     Toast.makeText(getApplicationContext(), "Saved ", Toast.LENGTH_SHORT).show();
                     clearFields();
+                   // cardNum = cardNo.getText().toString();
+
+                  // Intent intent = new Intent(AddNewCard.this, Payment.class);
+                   //intent.putExtra("cardID", id);
+                   //intent.putExtra("cardNo", cardnumber);
 
 
+                   // startActivity(intent);
 
                 }
+
             }
         });
+
+
+
+
 
 
 
@@ -144,16 +161,21 @@ public class AddNewCard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddNewCard.this, updateCard.class);
-                //dbRef.child(id).setValue(paymentHandle);
+                dbRef.child(id).setValue(paymentHandle);
                 intent.putExtra("cardID", id);
+                intent.putExtra("cardNo", cardNum );
+                intent.putExtra("cvv", scvv);
+                intent.putExtra("expDate", sdate);
+                intent.putExtra("name", sname);
+
                 startActivity(intent);
+
+
 
 
             }
         });
     }
-
-
 
 
 }

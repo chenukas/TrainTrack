@@ -1,6 +1,5 @@
 package com.mad.traintrack;
 
-import java.sql.Time;
 
 public class Reminder {
 

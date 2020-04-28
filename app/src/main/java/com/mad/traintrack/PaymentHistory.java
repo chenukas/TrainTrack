@@ -38,15 +38,16 @@ public class PaymentHistory extends AppCompatActivity {
         clearAll = findViewById(R.id.clr_all);
         payments = new Payments();
 
+
         final ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
-        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("TripDetails");
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Payments");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    //list.add(snapshot.getValue().toString());
+                    list.add(snapshot.getValue().toString());
                     Payments payments = snapshot.getValue(Payments.class);
                     String txt = payments.getTicketId().toString()+ "  total- "+payments.getTotal();
                     list.add(txt);
@@ -66,12 +67,12 @@ public class PaymentHistory extends AppCompatActivity {
         clearAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference deleteRef = FirebaseDatabase.getInstance().getReference().child("ticketDetails");
+                DatabaseReference deleteRef = FirebaseDatabase.getInstance().getReference().child("Payments");
                 deleteRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()) {
-                            dbref = FirebaseDatabase.getInstance().getReference().child("ticketDetails");
+                            dbref = FirebaseDatabase.getInstance().getReference().child("Payments");
                             dbref.removeValue();
                             Toast.makeText(getApplicationContext(), "You have successfully removed", Toast.LENGTH_SHORT).show();
                         }

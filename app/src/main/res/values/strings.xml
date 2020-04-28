@@ -127,6 +127,10 @@
     </string-array>
 
 
-</resources>
 
+    <string name="updateReminder">Update Reminder</string>
+    <string name="reminderId">Reminder Id</string>
+    <string name="deleteButton">Delete Reminder</string>
+    <string name="cardpayment">cardpayment</string>
+</resources>
 
