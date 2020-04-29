@@ -133,6 +133,7 @@ public class TicketDetails extends AppCompatActivity implements AdapterView.OnIt
                     Intent intent = new Intent(TicketDetails.this, Payment.class);
                     intent.putExtra("ticketId", id);
                     intent.putExtra("total",total);
+                    intent.putExtra("customerName", displayName);
                     startActivity(intent);
                     clearFields();
                 }
