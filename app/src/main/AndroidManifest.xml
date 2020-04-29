@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateReminder"></activity>
+        <activity android:name=".ViewSchedule"></activity>
+        <activity android:name=".PurchaseCompleted" />
+        <activity android:name=".UpdateReminder" />
         <activity android:name=".ViewSingleReminder" />
         <activity android:name=".Ticket" />
         <activity android:name=".PurchasedTickets" />

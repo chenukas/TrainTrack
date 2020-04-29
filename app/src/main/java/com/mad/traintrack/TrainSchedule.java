@@ -89,7 +89,7 @@ public class TrainSchedule extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedRouteId = routeId.get(position);
-                Intent intent = new Intent(TrainSchedule.this, TicketDetails.class);
+                Intent intent = new Intent(TrainSchedule.this, ViewSchedule.class);
                 intent.putExtra("selectedRouteId", selectedRouteId);
                 startActivity(intent);
             }
