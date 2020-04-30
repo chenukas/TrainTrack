@@ -1,6 +1,5 @@
 package com.mad.traintrack;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,11 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class AddReminder extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -29,7 +26,6 @@ public class AddReminder extends AppCompatActivity implements AdapterView.OnItem
     String id;
     ArrayAdapter<CharSequence> adapterBeginning, adapterDestination;
     Spinner spinnerBeginning, spinnerDestination;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +88,7 @@ public class AddReminder extends AppCompatActivity implements AdapterView.OnItem
                     }
                 }
         });
+
     }
 
     private void clearControls(){
@@ -112,4 +109,5 @@ public class AddReminder extends AppCompatActivity implements AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }
