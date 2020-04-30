@@ -34,8 +34,7 @@
     <string name="payment_page">Payment</string>
     <string name="add_new_card">New card</string>
     <string name="amount_new">Amount</string>
-    <string name="total_amount">Rs.250.00</string>
-    <string name="sample_card_no">4545 2675 8793 9091</string>
+    <string name="total_amount">Total</string>
 
 
     <string name="add_credit_debit_card">Credit/Debit Card Details</string>
@@ -93,6 +92,13 @@
     <string name="note">*All the tickets are displayed here according to their unique IDs, Please press them to view e-Ticket</string>
     <string name="journey_details">Journey Details</string>
     <string name="trainid_class"><![CDATA[Your Train & Class]]></string>
+    <string name="updateCard">Update</string>
+    <string name="updating_card">Updating card</string>
+    <string name="new_cvv">cvv</string>
+    <string name="new_exp_date">Exp date</string>
+    <string name="new_card_number">New card number</string>
+    <string name="new_name_on_card">Name</string>
+    <string name="card_submit">SUBMIT</string>
 
 
     <string-array name="stationsFrom">
@@ -120,6 +126,8 @@
         <item>Third</item>
     </string-array>
 
+
+
     <string name="updateReminder">Update Reminder</string>
     <string name="reminderId">Reminder Id</string>
     <string name="deleteButton">Delete Reminder</string>
@@ -130,4 +138,11 @@
     <string name="second_class">Second Class</string>
     <string name="third_class">Third Class</string>
     <string name="purchase_now">Purchase Now</string>
+    <string name="cardpayment">cardpayment</string>
+    <string name="card_1">card 1</string>
+    <string name="newcvv">cvv</string>
+    <string name="newexpdate">expdate</string>
+    <string name="delete_card">Delete</string>
+    <string name="new_card_numbers">new card number</string>
+    <string name="payment_details">Payment Details</string>
 </resources>

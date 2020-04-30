@@ -134,6 +134,7 @@ public class TicketDetails extends AppCompatActivity implements AdapterView.OnIt
                     intent.putExtra("ticketId", id);
                     intent.putExtra("total",total);
                     intent.putExtra("customerName", displayName);
+
                     startActivity(intent);
                     clearFields();
                 }
