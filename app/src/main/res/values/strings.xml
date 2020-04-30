@@ -133,6 +133,11 @@
     <string name="deleteButton">Delete Reminder</string>
     <string name="updateNote">Note: Since all the notices are based on your start and the destination of journey, you are not allowed to update them.</string>
     <string name="successful_message">You have successfully purchased ticket, Your ticket Id is</string>
+    <string name="ticket_prices">Ticket Prices</string>
+    <string name="first_class">First Class</string>
+    <string name="second_class">Second Class</string>
+    <string name="third_class">Third Class</string>
+    <string name="purchase_now">Purchase Now</string>
     <string name="cardpayment">cardpayment</string>
     <string name="card_1">card 1</string>
     <string name="newcvv">cvv</string>
