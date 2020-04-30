@@ -80,7 +80,7 @@
     <string name="purchased_tickets">Purchased Tickets</string>
     <string name="type_here">Type here...</string>
     <string name="ticketid">#ticketId</string>
-    <string name="trainid">#trainId</string>
+    <string name="trainid">Train No</string>
     <string name="trainclass">Class</string>
     <string name="cls">Class</string>
     <string name="logout">Logout</string>
@@ -131,6 +131,8 @@
     <string name="updateReminder">Update Reminder</string>
     <string name="reminderId">Reminder Id</string>
     <string name="deleteButton">Delete Reminder</string>
+    <string name="updateNote">Note: Since all the notices are based on your start and the destination of journey, you are not allowed to update them.</string>
+    <string name="successful_message">You have successfully purchased ticket, Your ticket Id is</string>
     <string name="cardpayment">cardpayment</string>
     <string name="card_1">card 1</string>
     <string name="newcvv">cvv</string>
@@ -139,4 +141,3 @@
     <string name="new_card_numbers">new card number</string>
     <string name="payment_details">Payment Details</string>
 </resources>
-

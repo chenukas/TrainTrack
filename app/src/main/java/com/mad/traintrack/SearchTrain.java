@@ -39,10 +39,10 @@ public class SearchTrain extends AppCompatActivity implements AdapterView.OnItem
 
         routeId = new ArrayList<>();
         startTime = new ArrayList<>();
-        spinnerFrom = findViewById(R.id.spinner1);
-        spinnerTo = findViewById(R.id.spinner2);
+        spinnerFrom = findViewById(R.id.selectFrom);
+        spinnerTo = findViewById(R.id.selectTo);
 
-        search = findViewById(R.id.button8);
+        search = findViewById(R.id.btnSearch);
         searchResult = findViewById(R.id.searchResult);
 
         adapterFrom = ArrayAdapter.createFromResource(this, R.array.stationsFrom, android.R.layout.simple_spinner_item);

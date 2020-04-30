@@ -132,6 +132,9 @@ public class TicketDetails extends AppCompatActivity implements AdapterView.OnIt
                     //Toast.makeText(getApplicationContext(),"Saved: "+ id, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(TicketDetails.this, Payment.class);
                     intent.putExtra("ticketId", id);
+                    intent.putExtra("total",total);
+                    intent.putExtra("customerName", displayName);
+
                     startActivity(intent);
                     clearFields();
                 }

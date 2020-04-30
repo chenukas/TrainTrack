@@ -9,11 +9,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +28,13 @@ import java.util.ArrayList;
 
 public class Payment extends AppCompatActivity {
 
-
-    Button plus,payNow;
-    TextView card1, txtDescription, txttotal;
-    RadioButton cardCheck;
+  
+    TextView textViewName, textViewTicketId, textViewTotal, card1;
+    Button paynow, plus;
+    String purchasedTicketId, customerName, savedCard;
     private ArrayList<String> description;
-    private ArrayList<String> cardResult;
-    String purchasedTicketId, savedCard;
+    private ArrayList<String> cardResult; 
+    RadioButton cardCheck;
     double total;
     DatabaseReference dbRef;
     Payments payments;

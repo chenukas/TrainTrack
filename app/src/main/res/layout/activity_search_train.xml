@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.050000012" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/selectFrom"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/selectTo"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.29000002" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnSearch"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/colorButton"
