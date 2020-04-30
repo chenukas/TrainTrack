@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class ViewReminder extends AppCompatActivity {
 
     Button addReminder;
-    ArrayList<String> reminderIds;
-    ArrayAdapter remindId;
+    ArrayList<String> reminderIds, reminderNames;
+    ArrayAdapter remindName;
     ListView reminderList;
 
     @Override
@@ -36,9 +36,11 @@ public class ViewReminder extends AppCompatActivity {
         final DatabaseReference dbOutputRef = FirebaseDatabase.getInstance().getReference("reminder");
 
         reminderIds = new ArrayList<>();
+        reminderNames = new ArrayList<>();
         reminderList = findViewById(R.id.reminderlist);
 
         reminderIds.clear();
+        reminderNames.clear();
 
         dbOutputRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,9 +49,11 @@ public class ViewReminder extends AppCompatActivity {
                     Reminder reminder = dSnapshot.getValue(Reminder.class);
                     assert reminder != null;
                     reminderIds.add(reminder.getRemindID());
+                    reminderNames.add(reminder.getName());
+
                 }
-                remindId = new ArrayAdapter<>(getApplicationContext(),R.layout.custom_list_item,reminderIds);
-                reminderList.setAdapter(remindId);
+                remindName = new ArrayAdapter<>(getApplicationContext(),R.layout.custom_list_item,reminderNames);
+                reminderList.setAdapter(remindName);
             }
 
             @Override
@@ -76,5 +80,9 @@ public class ViewReminder extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent3 = new Intent(ViewReminder.this,Home.class);
+        startActivity(intent3);
+    }
 }

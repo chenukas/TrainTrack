@@ -66,4 +66,10 @@ public class PurchasedTickets extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent3 = new Intent(PurchasedTickets.this,Home.class);
+        startActivity(intent3);
+    }
 }

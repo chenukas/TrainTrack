@@ -11,11 +11,10 @@
         android:theme="@style/AppTheme">
 
         
-        <activity android:name=".ViewSchedule"></activity>
+        <activity android:name=".ViewSchedule"/>
         <activity android:name=".PurchaseCompleted" />
         <activity android:name=".UpdateReminder" />
-        <activity android:name=".updateCard"></activity>
-        <activity android:name=".UpdateReminder"></activity>
+        <activity android:name=".updateCard"/>
         <activity android:name=".ViewSingleReminder" />
         <activity android:name=".Ticket" />
         <activity android:name=".PurchasedTickets" />

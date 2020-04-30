@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 public class PurchaseCompleted extends AppCompatActivity {
@@ -24,8 +25,16 @@ public class PurchaseCompleted extends AppCompatActivity {
         textViewTicketId.setText(ticketId);
 
         ticketId = "";
-        Intent intentHome = new Intent(PurchaseCompleted.this, Home.class);
-        startActivity(intentHome);
 
+        new Handler().postDelayed(new Runnable() {
+
+            public void run() {
+
+                Intent intentHome = new Intent(PurchaseCompleted.this, Home.class);
+                startActivity(intentHome);
+
+                finish();
+            }
+        }, 3000);
     }
 }

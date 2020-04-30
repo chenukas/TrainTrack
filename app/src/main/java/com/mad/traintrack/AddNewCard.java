@@ -26,23 +26,20 @@ public class AddNewCard extends AppCompatActivity {
     EditText cardNo,cvv,expDate,name;
     String displayCard, displayCvv, displayExp, displayName;
     Button btndone, btnupdate;
-    DatabaseReference dbRef;
     PaymentHandle paymentHandle;
-    String id, cardNum;
-
-
-    private void clearFields() {
-        cardNo.setText("");
-        cvv.setText("");
-        expDate.setText("");
-        name.setText("");
-    }
-
+    String id;
+    String customerName, ticketId;
+    Double total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_card);
+
+        Intent intentGet = getIntent();
+        customerName = intentGet.getStringExtra("customerName");
+        ticketId = intentGet.getStringExtra("ticketId");
+        total = intentGet.getDoubleExtra("total",0);
 
         cardNo = (EditText) findViewById(R.id.editText8);
         cvv = (EditText) findViewById(R.id.editText10);
@@ -53,14 +50,8 @@ public class AddNewCard extends AppCompatActivity {
 
 
         paymentHandle = new PaymentHandle();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
 
-        updateCardDetails();
-
-
-
-
-
+        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("PaymentHandle");
 
         btndone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,56 +72,44 @@ public class AddNewCard extends AppCompatActivity {
                    displayCvv = cvv.getText().toString();
                    displayName = name.getText().toString();
 
-
                     id = dbRef.push().getKey();
 
-                    paymentHandle.setCardNo(Integer.parseInt(cardNo.getText().toString()));
+                    paymentHandle.setCardNo(displayCard);
                     paymentHandle.setDate(displayExp);
-                    paymentHandle.setCvv(Integer.parseInt(cvv.getText().toString()));
+                    paymentHandle.setCvv(displayCvv);
                     paymentHandle.setName(displayName);
                     paymentHandle.setCardID(id);
-
-                    int cardnumber = Integer.parseInt(cardNo.getText().toString());
 
                     dbRef.child(id).setValue(paymentHandle);
                     //dbRef.child(cardNum).setValue(paymentHandle);
 
                     Toast.makeText(getApplicationContext(), "Saved ", Toast.LENGTH_SHORT).show();
-                    clearFields();
-                    cardNum = cardNo.getText().toString();
 
+                    //cardNum = cardNo.getText().toString();
+
+                    clearFields();
                    Intent intent = new Intent(AddNewCard.this, Payment.class);
                    intent.putExtra("cardID", id);
-                   intent.putExtra("cardNo", cardnumber);
-
+                   intent.putExtra("cardNo", displayCard);
+                    intent.putExtra("customerName", customerName);
+                    intent.putExtra("ticketId",ticketId);
+                    intent.putExtra("total", total);
 
                    startActivity(intent);
 
                 }
-
             }
         });
 
-
-
-
-
-
-
-
-
-
-
+        updateCardDetails();
 
     }
+
     public void updateCardDetails(){
-
-
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddNewCard.this, updateCard.class);
-                dbRef.child(id).setValue(paymentHandle);
                 intent.putExtra("cardID", id);
                 intent.putExtra("cardNo", displayCard);
                 intent.putExtra("date", displayExp);
@@ -140,14 +119,16 @@ public class AddNewCard extends AppCompatActivity {
 
                 startActivity(intent);
 
-
-
-
             }
         });
     }
 
-
+    private void clearFields() {
+        cardNo.setText("");
+        cvv.setText("");
+        expDate.setText("");
+        name.setText("");
+    }
 }
 
 

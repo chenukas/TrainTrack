@@ -36,7 +36,7 @@ public class UpdateReminder extends AppCompatActivity {
 
         final Intent intent = getIntent();
         currentRemindId = intent.getStringExtra("currentRemindId");
-        Toast.makeText(getApplicationContext(),"Current Remind Id: " +currentRemindId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Current Remind Id: " +currentRemindId, Toast.LENGTH_SHORT).show();
 
         reminderName = findViewById(R.id.remindName);
         reminderContent = findViewById(R.id.remindContent);
@@ -92,7 +92,7 @@ public class UpdateReminder extends AppCompatActivity {
 
                         updReminderRef.child(currentRemindId).setValue(reminder);
                         Toast.makeText(getApplicationContext(), "Reminder is updated", Toast.LENGTH_SHORT).show();
-                        Intent intent3 = new Intent(UpdateReminder.this,ViewSingleReminder.class);
+                        Intent intent3 = new Intent(UpdateReminder.this,ViewReminder.class);
                         intent3.putExtra("selectedRemindId",remindId);
                         startActivity(intent3);
                     }

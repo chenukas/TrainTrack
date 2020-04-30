@@ -31,7 +31,7 @@ public class Payment extends AppCompatActivity {
   
     TextView textViewName, textViewTicketId, textViewTotal, card1;
     Button paynow, plus;
-    String purchasedTicketId, customerName, savedCard;
+    String purchasedTicketId, customerName, savedCard, cardNo;
     private ArrayList<String> description;
     private ArrayList<String> cardResult; 
     RadioButton cardCheck;
@@ -40,161 +40,78 @@ public class Payment extends AppCompatActivity {
     Payments payments;
 
 
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        txtDescription = findViewById(R.id.textView13);
-        txttotal = findViewById(R.id.textView14);
+        Intent intent = getIntent();
+        purchasedTicketId = intent.getStringExtra("ticketId");
+        total = intent.getDoubleExtra("total",0);
+        customerName = intent.getStringExtra("customerName");
+
+        Intent intent2 = getIntent();
+        savedCard = intent2.getStringExtra("cardID");
+        cardNo = intent2.getStringExtra("cardNo");
+        customerName = intent2.getStringExtra("customerName");
+        purchasedTicketId = intent2.getStringExtra("ticketId");
+        total = intent2.getDoubleExtra("total",0);
+
+
+        textViewName = findViewById(R.id.textView50);
+        textViewTicketId = findViewById(R.id.textView51);
+        textViewTotal =findViewById(R.id.textView14);
+
         card1 = findViewById(R.id.savedCard);
         cardCheck = findViewById(R.id.radioButtonCard);
         plus = findViewById(R.id.button5);
-        payNow = findViewById(R.id.button6);
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Payments");
+        paynow = findViewById(R.id.button6);
+        dbRef = FirebaseDatabase.getInstance().getReference("Payments");
         payments = new Payments();
         description = new ArrayList<String>();
         cardResult = new ArrayList<String>();
 
-        saveValues();
+        textViewName.setText(customerName);
+        textViewTicketId.setText(purchasedTicketId);
+        textViewTotal.setText(String.valueOf(total));
+
+        card1.setText(String.valueOf(cardNo));
+
         addNewCard();
 
-
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("ticketId",0);
-        SharedPreferences.Editor editor = pref.edit();
-
-        Intent i = getIntent();
-        purchasedTicketId = i.getStringExtra("ticketId");
-        //total = i.getDoubleExtra("total", 0);
-        txtDescription.setText(purchasedTicketId);
-
-
-        editor.putString("ticketId", purchasedTicketId);
-        pref.getString("ticketId", purchasedTicketId);
-
-       pay();
-
-
-    }
-
-    public void saveValues(){
-
-
-
-
-        dbRef.addValueEventListener(new ValueEventListener() {
+        paynow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
-                    TicketDescription ticketDescription = dSnapshot.getValue(TicketDescription.class);
-                    //assert payments != null;
-                    //ticketDescription.getTotal();
-                    purchasedTicketId = ticketDescription.getTicketId();
-                    total = ticketDescription.getTotal();
-                }
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onClick(View v) {
+                Intent intent2 = new Intent(Payment.this,PurchaseCompleted.class);
+                intent2.putExtra("ticketId", purchasedTicketId);
+                startActivity(intent2);
 
             }
         });
     }
 
-    public void viewDetails(){
-
-
-
-
-    }
-
     public void addNewCard(){
-
-
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Payment.this, AddNewCard.class);
+                intent.putExtra("customerName", customerName);
+                intent.putExtra("ticketId",purchasedTicketId);
+                intent.putExtra("total", total);
                 startActivity(intent);
             }
         });
 
 
-        Intent intent = getIntent();
-        String cardID = intent.getStringExtra("cardID");
-        int cardNo = intent.getIntExtra("cardNo", 0);
+        //Intent intent = getIntent();
+        //String cardID = intent.getStringExtra("cardID");
+        //int cardNo = intent.getIntExtra("cardNo", 0);
 
-        card1.setText(String.valueOf(cardNo));
+        //card1.setText(String.valueOf(cardNo));
         //cardNo = intent.getStringExtra("cardNo");
 
-        Toast.makeText(getApplicationContext(), "Card ID: " +cardID + "\nTotal: "
-                + Double.valueOf(total).toString(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Card ID: " +cardID + "\nTotal: "+ Double.valueOf(total).toString(),Toast.LENGTH_SHORT).show();
 
     }
-
-
-
-    public void pay(){
-        payNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Payment.this, PaymentHistory.class);
-                startActivity(intent);
-            }
-        });
-
-
-        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("ticket");
-        Toast.makeText(getApplicationContext(), "Ticket ID: " +purchasedTicketId + "\nTotal: "
-                + Double.valueOf(total).toString(),Toast.LENGTH_SHORT).show();
-
-
-
-
-         dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
-                    TicketDescription ticketDescription = dSnapshot.getValue(TicketDescription.class);
-                    String ticketId = ticketDescription.getTicketId();
-                    Double total = ticketDescription.getTotal();
-
-
-                }
-            }
-
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-       dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dSnapshot:dataSnapshot.getChildren()) {
-                    PaymentHandle paymentHandle = dSnapshot.getValue(PaymentHandle.class);
-                    assert payments != null;
-                    Integer cardNo = paymentHandle.getCardNo();
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
-
-
 }
