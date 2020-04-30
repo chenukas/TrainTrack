@@ -135,7 +135,7 @@
         android:id="@+id/savedCard"
         android:layout_width="143dp"
         android:layout_height="43dp"
-        android:text="card 1"
+        android:text="@string/card_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.458"

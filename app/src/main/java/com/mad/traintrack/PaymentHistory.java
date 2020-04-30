@@ -24,8 +24,10 @@ public class PaymentHistory extends AppCompatActivity {
       ListView listView;
       Button clearAll;
       ArrayList<String> list = new ArrayList<>( );
-      Payments payments;
+      PaymentHandle paymentHandle;
       DatabaseReference dbref;
+
+
 
 
 
@@ -36,25 +38,26 @@ public class PaymentHistory extends AppCompatActivity {
 
         listView = findViewById(R.id.payList);
         clearAll = findViewById(R.id.clr_all);
-        payments = new Payments();
+        paymentHandle = new PaymentHandle();
 
+
+        delete();
 
         final ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
-        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Payments");
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    list.add(snapshot.getValue().toString());
-                    Payments payments = snapshot.getValue(Payments.class);
-                    String txt = payments.getTicketId().toString()+ "  total- "+payments.getTotal();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //list.add(snapshot.getValue().toString());
+                    PaymentHandle paymentHandle = snapshot.getValue(PaymentHandle.class);
+                    String txt = "Name :" + paymentHandle.getName() + "\nCard number: " + paymentHandle.getCardNo() + "\n CVV : " + paymentHandle.getCardNo() + "\n Exp Date:" + paymentHandle.getDate();
                     list.add(txt);
                 }
-                   adapter.notifyDataSetChanged();
-                }
-
+                adapter.notifyDataSetChanged();
+            }
 
 
             @Override
@@ -64,19 +67,22 @@ public class PaymentHistory extends AppCompatActivity {
 
         });
 
+    }
+        public void delete(){
         clearAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference deleteRef = FirebaseDatabase.getInstance().getReference().child("Payments");
+                DatabaseReference deleteRef = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
                 deleteRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()) {
-                            dbref = FirebaseDatabase.getInstance().getReference().child("Payments");
+                            dbref = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
                             dbref.removeValue();
                             Toast.makeText(getApplicationContext(), "You have successfully removed", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -85,6 +91,7 @@ public class PaymentHistory extends AppCompatActivity {
             }
         });
     }
+
 
 
 }

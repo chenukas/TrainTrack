@@ -5,13 +5,13 @@ public class Payments {
     private String tripId;
     private String ticketId;
     private double total;
-    private String cardNo;
+    private Integer cardNo;
 
 
 
     public Payments(){}
 
-    public Payments(String tripId, String ticketId, double total, String cardNo) {
+    public Payments(String tripId, String ticketId, double total, Integer cardNo) {
         this.tripId = tripId;
         this.ticketId = ticketId;
         this.total = total;
@@ -42,11 +42,11 @@ public class Payments {
         this.total = total;
     }
 
-    public String getCardNo() {
+    public Integer getCardNo() {
         return cardNo;
     }
 
-    public void setCardNo(String cardNo) {
+    public void setCardNo(Integer cardNo) {
         this.cardNo = cardNo;
     }
 }

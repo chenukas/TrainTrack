@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -56,40 +57,59 @@ public class Payment extends AppCompatActivity {
         description = new ArrayList<String>();
         cardResult = new ArrayList<String>();
 
-
-        viewDetails();
         saveValues();
-
-
         addNewCard();
-        tripDetails();
-        pay();
+
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("ticketId",0);
+        SharedPreferences.Editor editor = pref.edit();
+
+        Intent i = getIntent();
+        purchasedTicketId = i.getStringExtra("ticketId");
+        //total = i.getDoubleExtra("total", 0);
+        txtDescription.setText(purchasedTicketId);
+
+
+        editor.putString("ticketId", purchasedTicketId);
+        pref.getString("ticketId", purchasedTicketId);
+
+       pay();
 
 
     }
 
     public void saveValues(){
-        ArrayList description =  new ArrayList();
-        description.add(purchasedTicketId);
-        //description.add();
 
 
+
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
+                    TicketDescription ticketDescription = dSnapshot.getValue(TicketDescription.class);
+                    //assert payments != null;
+                    //ticketDescription.getTotal();
+                    purchasedTicketId = ticketDescription.getTicketId();
+                    total = ticketDescription.getTotal();
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
-
     public void viewDetails(){
+
 
 
 
     }
 
     public void addNewCard(){
-
-
-        Intent i = getIntent();
-        String tid = i.getStringExtra("ticketId");
-        double total = i.getDoubleExtra("total", 0);
-
 
 
         plus.setOnClickListener(new View.OnClickListener() {
@@ -123,25 +143,20 @@ public class Payment extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Intent intent = getIntent();
-        purchasedTicketId = intent.getStringExtra("ticketId");
 
 
-        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("ticket");//.child(purchasedTicketId);
-        //final DatabaseReference dbinput = FirebaseDatabase.getInstance().getReference().child("Payments");
+        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("ticket");
         Toast.makeText(getApplicationContext(), "Ticket ID: " +purchasedTicketId + "\nTotal: "
                 + Double.valueOf(total).toString(),Toast.LENGTH_SHORT).show();
 
 
 
-        //final DatabaseReference dbRef1 = FirebaseDatabase.getInstance().getReference("ticket").child("Payments");
+
          dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dSnapshot : dataSnapshot.getChildren()) {
                     TicketDescription ticketDescription = dSnapshot.getValue(TicketDescription.class);
-                   //assert payments != null;
-                    //ticketDescription.getTotal();
                     String ticketId = ticketDescription.getTicketId();
                     Double total = ticketDescription.getTotal();
 
@@ -168,7 +183,7 @@ public class Payment extends AppCompatActivity {
 
 
                 }
-                //Toast.makeText(getApplicationContext(),"TrainNo: " + trainNo "\nStartTime: " + startTime +"\nFrom: " + from +"\nTo: " + to, Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -176,18 +191,6 @@ public class Payment extends AppCompatActivity {
 
             }
         });
-
-    }
-
-
-   public void tripDetails(){
-
-        final  DatabaseReference dbinput = FirebaseDatabase.getInstance().getReference("Payments");
-        Payments payments = new Payments();
-        payments.setTicketId(purchasedTicketId);
-        payments.setTotal(total);
-        payments.setCardNo(savedCard);
-
 
     }
 

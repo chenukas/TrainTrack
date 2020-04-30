@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="455dp"
-        android:text="@string/recent_payment"
+        android:text="@string/payment_details"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAccent"
         android:textSize="38sp"

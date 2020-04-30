@@ -26,10 +26,9 @@ public class AddNewCard extends AppCompatActivity {
     EditText cardNo,cvv,expDate,name;
     String displayCard, displayCvv, displayExp, displayName;
     Button btndone, btnupdate;
-    Switch save;
     DatabaseReference dbRef;
     PaymentHandle paymentHandle;
-    String id, cardNum, scvv,sname, sdate;
+    String id, cardNum;
 
 
     private void clearFields() {
@@ -49,7 +48,6 @@ public class AddNewCard extends AppCompatActivity {
         cvv = (EditText) findViewById(R.id.editText10);
         expDate = (EditText) findViewById(R.id.editText13);
         name = (EditText) findViewById(R.id.editText3);
-        save = (Switch) findViewById(R.id.switch1);
         btndone = (Button) findViewById(R.id.button4);
         btnupdate = (Button)findViewById(R.id.crdUpdate);
 
@@ -57,8 +55,8 @@ public class AddNewCard extends AppCompatActivity {
         paymentHandle = new PaymentHandle();
         dbRef = FirebaseDatabase.getInstance().getReference().child("PaymentHandle");
 
-
         updateCardDetails();
+
 
 
 
@@ -99,14 +97,14 @@ public class AddNewCard extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Saved ", Toast.LENGTH_SHORT).show();
                     clearFields();
-                   // cardNum = cardNo.getText().toString();
+                    cardNum = cardNo.getText().toString();
 
-                  // Intent intent = new Intent(AddNewCard.this, Payment.class);
-                   //intent.putExtra("cardID", id);
-                   //intent.putExtra("cardNo", cardnumber);
+                   Intent intent = new Intent(AddNewCard.this, Payment.class);
+                   intent.putExtra("cardID", id);
+                   intent.putExtra("cardNo", cardnumber);
 
 
-                   // startActivity(intent);
+                   startActivity(intent);
 
                 }
 
@@ -119,36 +117,6 @@ public class AddNewCard extends AppCompatActivity {
 
 
 
-        /*DatabaseReference viewRef = FirebaseDatabase.getInstance().getReference("PaymentHandle");
-        viewRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
-                    cardNo.setText(dataSnapshot.child("cardNo").getValue().toString().trim());
-                    expDate.setText(dataSnapshot.child("date").getValue().toString().trim());
-                    cvv.setText(dataSnapshot.child("cvv").getValue().toString().trim());
-                    name.setText(dataSnapshot.child("name").getValue().toString().trim());
-
-                }else{
-                    Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
-
-
-
-                    //Intent intent = new Intent(AddNewCard.this, Payment.class);
-                    //intent.putExtra("card",displayCard );
-
-                    // startActivity(intent);
-
-
 
 
 
@@ -157,16 +125,18 @@ public class AddNewCard extends AppCompatActivity {
     }
     public void updateCardDetails(){
 
+
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddNewCard.this, updateCard.class);
                 dbRef.child(id).setValue(paymentHandle);
                 intent.putExtra("cardID", id);
-                intent.putExtra("cardNo", cardNum );
-                intent.putExtra("cvv", scvv);
-                intent.putExtra("expDate", sdate);
-                intent.putExtra("name", sname);
+                intent.putExtra("cardNo", displayCard);
+                intent.putExtra("date", displayExp);
+                intent.putExtra("cvv", displayCvv);
+                intent.putExtra("name",displayName);
+
 
                 startActivity(intent);
 

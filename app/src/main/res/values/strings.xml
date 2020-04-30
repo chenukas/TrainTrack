@@ -132,5 +132,11 @@
     <string name="reminderId">Reminder Id</string>
     <string name="deleteButton">Delete Reminder</string>
     <string name="cardpayment">cardpayment</string>
+    <string name="card_1">card 1</string>
+    <string name="newcvv">cvv</string>
+    <string name="newexpdate">expdate</string>
+    <string name="delete_card">Delete</string>
+    <string name="new_card_numbers">new card number</string>
+    <string name="payment_details">Payment Details</string>
 </resources>
 

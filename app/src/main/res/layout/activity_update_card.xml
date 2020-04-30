@@ -8,89 +8,91 @@
 
     <EditText
         android:id="@+id/editText4"
-        android:layout_width="264dp"
-        android:layout_height="56dp"
+        android:layout_width="304dp"
+        android:layout_height="64dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="cvv"
+        android:hint="@string/newcvv"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462"
-        android:autofillHints="" tools:targetApi="o"/>
+        app:layout_constraintVertical_bias="0.458"
+        tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textView38"
-        android:layout_width="254dp"
-        android:layout_height="53dp"
-        android:text="@string/updating_card"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="264dp"
+        android:layout_width="320dp"
         android:layout_height="56dp"
-        android:ems="10"
-        android:hint="@string/new_card_number"
-        android:inputType="textPersonName"
+        android:text="@string/updating_card"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268"
-        android:autofillHints="" tools:targetApi="o" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <EditText
         android:id="@+id/editText5"
-        android:layout_width="264dp"
-        android:layout_height="56dp"
+        android:layout_width="304dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="@string/new_name_on_card"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_bias="0.555" />
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="264dp"
+        android:layout_width="309dp"
         android:layout_height="56dp"
         android:ems="10"
-        android:hint="expdate"
+        android:hint="@string/newexpdate"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_bias="0.361" />
+
+    <EditText
+        android:id="@+id/editText20"
+        android:layout_width="309dp"
+        android:layout_height="56dp"
+        android:ems="10"
+        android:hint="@string/new_card_numbers"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="112dp"
-        android:layout_height="50dp"
+        android:id="@+id/button2"
+        android:layout_width="291dp"
+        android:layout_height="57dp"
         android:background="@color/colorButton"
         android:text="@string/card_submit"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.772" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
