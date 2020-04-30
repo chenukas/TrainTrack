@@ -3,15 +3,15 @@ package com.mad.traintrack;
 public class PaymentHandle {
 
     private String cardID;
-    private Integer cardNo;
-    private Integer cvv;
+    private String cardNo;
+    private String cvv;
     private String date;
     private String name;
 
     public PaymentHandle() {
     }
 
-    public PaymentHandle(String cardID,Integer cardNo, Integer cvv, String date, String name) {
+    public PaymentHandle(String cardID,String cardNo, String cvv, String date, String name) {
         this.cardID = cardID;
         this.cardNo = cardNo;
         this.cvv = cvv;
@@ -27,19 +27,19 @@ public class PaymentHandle {
         this.cardID = cardID;
     }
 
-    public Integer getCardNo() {
+    public String getCardNo() {
         return cardNo;
     }
 
-    public void setCardNo(Integer cardNo) {
+    public void setCardNo(String cardNo) {
         this.cardNo = cardNo;
     }
 
-    public Integer getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(Integer cvv) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 

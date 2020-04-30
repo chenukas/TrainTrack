@@ -103,4 +103,10 @@ public class SearchTrain extends AppCompatActivity implements AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent3 = new Intent(SearchTrain.this,Home.class);
+        startActivity(intent3);
+    }
 }

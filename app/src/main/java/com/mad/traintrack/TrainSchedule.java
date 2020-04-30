@@ -108,4 +108,10 @@ public class TrainSchedule extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent3 = new Intent(TrainSchedule.this,Home.class);
+        startActivity(intent3);
+    }
 }

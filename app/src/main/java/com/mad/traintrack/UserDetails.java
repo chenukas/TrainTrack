@@ -182,5 +182,11 @@ public class UserDetails extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent3 = new Intent(UserDetails.this,Home.class);
+        startActivity(intent3);
+    }
 }
 
